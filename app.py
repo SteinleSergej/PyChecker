@@ -39,8 +39,10 @@ ls_entry.grid(row=0,column=0,pady=(20,5),ipady=3)
 ls_btn.grid(row=0,column=1,pady=(20,5),padx=5)
 
 #output frame layout
+ls_listbox_scrollbar = tkinter.Scrollbar(output_frame)
 ls_listbox = tkinter.Listbox(output_frame,height=15,width=45,borderwidth=2,font=main_font)
 ls_listbox.grid(row=0,column=0)
+ls_listbox_scrollbar.grid(row=0,column=1,sticky="NS")
 
 #btn frame layout
 ls_remove_btn = tkinter.Button(button_frame,text="Remove Item",bg=btn_color,font=main_font)
