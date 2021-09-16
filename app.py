@@ -1,4 +1,5 @@
 import tkinter
+from tkinter import font
 
 
 #define window
@@ -33,6 +34,20 @@ button_frame.pack()
 ls_entry = tkinter.Entry(input_frame,width=35,font=main_font)
 ls_btn   = tkinter.Button(input_frame,text="Add Item",bg=btn_color,font=main_font)
 
+
 ls_entry.grid(row=0,column=0,pady=(20,5),ipady=3)
 ls_btn.grid(row=0,column=1,pady=(20,5),padx=5)
+
+#output frame layout
+ls_listbox = tkinter.Listbox(output_frame,height=15,width=45,borderwidth=2,font=main_font)
+ls_listbox.grid(row=0,column=0)
+
+#btn frame layout
+ls_remove_btn = tkinter.Button(button_frame,text="Remove Item",bg=btn_color,font=main_font)
+ls_clear_btn = tkinter.Button(button_frame,text="Clear List",bg=btn_color,font=main_font)
+ls_save_btn = tkinter.Button(button_frame,text="Save List",bg=btn_color,font=main_font)
+
+ls_remove_btn.grid(row=0,column=0,padx=10)
+ls_clear_btn.grid(row=0,column=1,padx=10,ipadx=20)
+ls_save_btn.grid(row=0,column=2,padx=10,ipadx=20)
 root.mainloop()
