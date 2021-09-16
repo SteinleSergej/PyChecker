@@ -18,6 +18,21 @@ root.config(bg=main_color)
 #define functions
 
 
-#define layout
+#--define layout--#
+#Create frames
+input_frame = tkinter.Frame(root,bg=main_color)
+output_frame = tkinter.Frame(root,bg=main_color)
+button_frame = tkinter.Frame(root,bg=main_color)
 
+input_frame.pack()
+output_frame.pack()
+button_frame.pack()
+
+
+#input_frame
+ls_entry = tkinter.Entry(input_frame,width=35,font=main_font)
+ls_btn   = tkinter.Button(input_frame,text="Add Item",bg=btn_color,font=main_font)
+
+ls_entry.grid(row=0,column=0,pady=(20,5),ipady=3)
+ls_btn.grid(row=0,column=1,pady=(20,5),padx=5)
 root.mainloop()
