@@ -21,6 +21,8 @@ root.config(bg=main_color)
 count = 0
 def add_item():
     global count
+    if(ls_entry.get() == ""):
+        return
     ls_listbox.insert(END,ls_entry.get())
     if (count % 2 == 0):
         ls_listbox.itemconfig(count,{'bg':'#f1ece9'})
@@ -52,7 +54,8 @@ ls_btn.grid(row=0,column=1,pady=(20,5),padx=5)
 
 #output frame layout
 ls_listbox_scrollbar = tkinter.Scrollbar(output_frame)
-ls_listbox = tkinter.Listbox(output_frame,height=15,width=45,borderwidth=2,font=main_font)
+#@,yscrollcommand=ls_listbox_scrollbar.set : scrollbar activated if we have enough items
+ls_listbox = tkinter.Listbox(output_frame,height=15,width=45,borderwidth=2,font=main_font,yscrollcommand=ls_listbox_scrollbar.set)
 ls_listbox.grid(row=0,column=0)
 
 #link scrollbar to listbox
