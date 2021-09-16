@@ -1,6 +1,7 @@
 import tkinter
 from tkinter import END
 from tkinter import font
+from tkinter.constants import ANCHOR
 
 
 #define window
@@ -33,6 +34,11 @@ def add_item():
     
     ls_entry.delete(0,END)
 
+def rm_item():
+    global count
+    #remove item from listbox with the help of ANCHOR
+    ls_listbox.delete(ANCHOR)
+    count -= 1
 #--define layout--#
 #Create frames
 input_frame = tkinter.Frame(root,bg=main_color)
@@ -63,7 +69,7 @@ ls_listbox_scrollbar.config(command=ls_listbox.yview)
 ls_listbox_scrollbar.grid(row=0,column=1,sticky="NS")
 
 #btn frame layout
-ls_remove_btn = tkinter.Button(button_frame,text="Remove Item",bg=btn_color,font=main_font)
+ls_remove_btn = tkinter.Button(button_frame,text="Remove Item",bg=btn_color,font=main_font,command=rm_item)
 ls_clear_btn = tkinter.Button(button_frame,text="Clear List",bg=btn_color,font=main_font)
 ls_save_btn = tkinter.Button(button_frame,text="Save List",bg=btn_color,font=main_font)
 
