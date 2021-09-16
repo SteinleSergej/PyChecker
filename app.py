@@ -1,4 +1,5 @@
 import tkinter
+from tkinter import END
 from tkinter import font
 
 
@@ -17,7 +18,18 @@ btn_color = "#DDD0C8"
 root.config(bg=main_color)
 
 #define functions
-
+count = 0
+def add_item():
+    global count
+    ls_listbox.insert(END,ls_entry.get())
+    if (count % 2 == 0):
+        ls_listbox.itemconfig(count,{'bg':'#f1ece9'})
+        count += 1
+    else :
+        ls_listbox.itemconfig(count,{'bg':'#ddd0c8'})
+        count += 1
+    
+    ls_entry.delete(0,END)
 
 #--define layout--#
 #Create frames
@@ -32,7 +44,7 @@ button_frame.pack()
 
 #input_frame
 ls_entry = tkinter.Entry(input_frame,width=35,font=main_font)
-ls_btn   = tkinter.Button(input_frame,text="Add Item",bg=btn_color,font=main_font)
+ls_btn   = tkinter.Button(input_frame,text="Add Item",bg=btn_color,font=main_font,command=add_item)
 
 
 ls_entry.grid(row=0,column=0,pady=(20,5),ipady=3)
@@ -42,6 +54,9 @@ ls_btn.grid(row=0,column=1,pady=(20,5),padx=5)
 ls_listbox_scrollbar = tkinter.Scrollbar(output_frame)
 ls_listbox = tkinter.Listbox(output_frame,height=15,width=45,borderwidth=2,font=main_font)
 ls_listbox.grid(row=0,column=0)
+
+#link scrollbar to listbox
+ls_listbox_scrollbar.config(command=ls_listbox.yview)
 ls_listbox_scrollbar.grid(row=0,column=1,sticky="NS")
 
 #btn frame layout
